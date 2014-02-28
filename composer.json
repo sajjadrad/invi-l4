@@ -1,6 +1,7 @@
 {
     "name": "sajjadrad/invi",
     "description": "A simple invitation system api",
+	"license": "MIT",
     "authors": [
         {
             "name": "Sajjad Rad",
