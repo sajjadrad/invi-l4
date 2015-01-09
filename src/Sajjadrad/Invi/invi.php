@@ -125,7 +125,7 @@ class Invi
 			else if(strtotime("now") > strtotime($temp->expiration))
 				return "expired";
 			else
-				return "valid";
+				return $temp->code;
 		}
 		else
 			return False;
