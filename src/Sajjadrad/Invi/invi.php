@@ -56,6 +56,14 @@ class Invi
 		}
 		
 	}
+	public function unexpire($code,$email,$expire)
+	{
+		$now = strtotime("now");
+		$format = 'Y-m-d H:i:s ';
+		$expiration = date($format, strtotime('+ '.$expire, $now)); 
+		Invitation::where('code','=',$code)->where('email','=',$email)
+				->update(array('expiration'=>$expiration));
+	}
 	public function active($code,$email)
 	{
 		Invitation::where('code','=',$code)->where('email','=',$email)
