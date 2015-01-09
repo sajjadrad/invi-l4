@@ -12,7 +12,7 @@
 * THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 *
 * @package Invi
-* @version 0.7 l4
+* @version 0.7.1 l4
 * @author Sajjad Rad [sajjad.273@gmail.com]
 * @license MIT License (3-clause)
 * @copyright (c) 2014
