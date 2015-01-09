@@ -112,6 +112,24 @@ class Invi
 		$temp = Invitation::where('code', '=', $code)->where('email','=',$email)
 					->delete();
 	}
+	public function emailStatus($email)
+	{
+		$temp = Invitation::where('email','=',$email)
+					->first();
+		if($temp)
+		{
+			if(!$temp->active)
+				return "deactive";
+			else if($temp->used)
+				return "used";
+			else if(strtotime("now") > strtotime($temp->expiration))
+				return "expired";
+			else
+				return "valid";
+		}
+		else
+			return False;
+	}
 	protected function checkEmail($email)
 	{
 		$temp = Invitation::where('email', '=', $email)->first();
@@ -120,6 +138,7 @@ class Invi
 		else
 			return True;
 	}
+
 	protected function hash_split($hash)
 	{
 		$output = str_split($hash,8);
