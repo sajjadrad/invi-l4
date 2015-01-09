@@ -118,14 +118,18 @@ class Invi
 					->first();
 		if($temp)
 		{
-			if(!$temp->active)
-				return "deactive";
-			else if($temp->used)
-				return "used";
-			else if(strtotime("now") > strtotime($temp->expiration))
-				return "expired";
-			else
-				return $temp->code;
+			$expired = false;
+			if(strtotime("now") > strtotime($temp->expiration))
+				$expired = true;
+			$invite = array(
+					"code"			=> $temp->code,
+					"email"			=> $temp->email,
+					"expiration"	=> $temp->expiration,
+					"expired"		=> $expired,
+					"active"		=> $temp->active,
+					"used"			=> $temp->used
+				);
+			return json_encode($invite);
 		}
 		else
 			return False;
