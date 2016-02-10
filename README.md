@@ -1,7 +1,8 @@
 # Invi Package for Laravel 4 #
 
 This package help you to make a simple invitation system for your signup or other services.
-[https://packagist.org/packages/sajjadrad/invi]
+
+You can use laravel 5 version at here [https://github.com/Atbox/invi-l5]
 
 ## Features ##
 - Generate invitation code with email.
